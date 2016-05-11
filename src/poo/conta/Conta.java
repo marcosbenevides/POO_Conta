@@ -5,8 +5,6 @@
  */
 package poo.conta;
 
-import sun.awt.AWTAccessor;
-
 /**
  *
  * @author Marcos
