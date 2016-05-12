@@ -5,6 +5,14 @@
  */
 package poo.conta;
 
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
+import javax.swing.text.NumberFormatter;
+
 /**
  *
  * @author avantibr
@@ -16,6 +24,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        panelAbrir.setVisible(false);
+        panelConsulta.setVisible(false);
     }
 
     /**
@@ -27,51 +37,205 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        panelAbrir = new javax.swing.JPanel();
+        botaoConfirmar = new javax.swing.JButton();
+        labelNome = new javax.swing.JLabel();
+        textoNome = new javax.swing.JTextField();
+        labelCpf = new javax.swing.JLabel();
+        radioPoup = new javax.swing.JRadioButton();
+        radioCorr = new javax.swing.JRadioButton();
+        labelTipoConta = new javax.swing.JLabel();
+        botaoCancelar = new javax.swing.JButton();
+        labelValor = new javax.swing.JLabel();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jSpinner1 = new javax.swing.JSpinner();
+        panelConsulta = new javax.swing.JPanel();
+        menu = new javax.swing.JMenuBar();
+        menuConta = new javax.swing.JMenu();
         menuAbrirConta = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        menuSacar = new javax.swing.JMenuItem();
+        menuTransferir = new javax.swing.JMenuItem();
+        menuDepositar = new javax.swing.JMenuItem();
+        menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu5.setText("Conta");
+        botaoConfirmar.setText("Confirmar");
 
-        menuAbrirConta.setText("jMenuItem1");
+        labelNome.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        labelNome.setText("Nome");
+
+        textoNome.setToolTipText("");
+
+        labelCpf.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        labelCpf.setText("CPF:");
+
+        buttonGroup1.add(radioPoup);
+        radioPoup.setText("Poupança");
+
+        buttonGroup1.add(radioCorr);
+        radioCorr.setText("Corrente");
+
+        labelTipoConta.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        labelTipoConta.setText("Tipo de Conta");
+
+        botaoCancelar.setText("Cancelar");
+
+        labelValor.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        labelValor.setText("Valor inicial na conta");
+
+        try{
+            jFormattedTextField1.setFormatterFactory(new DefaultFormatterFactory(new MaskFormatter("###.###.###-##")));
+        }catch(ParseException ex){
+            System.out.println(ex);
+        }
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 50000.0d, 0.5d));
+
+        javax.swing.GroupLayout panelAbrirLayout = new javax.swing.GroupLayout(panelAbrir);
+        panelAbrir.setLayout(panelAbrirLayout);
+        panelAbrirLayout.setHorizontalGroup(
+            panelAbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(textoNome, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(panelAbrirLayout.createSequentialGroup()
+                .addGroup(panelAbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCpf)
+                    .addComponent(labelNome)
+                    .addGroup(panelAbrirLayout.createSequentialGroup()
+                        .addGroup(panelAbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAbrirLayout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(botaoConfirmar))
+                            .addGroup(panelAbrirLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(radioPoup))
+                            .addGroup(panelAbrirLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(radioCorr))
+                            .addGroup(panelAbrirLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelTipoConta)))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelAbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelValor)
+                            .addComponent(botaoCancelar)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAbrirLayout.createSequentialGroup()
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)))))
+                .addGap(0, 10, Short.MAX_VALUE))
+            .addComponent(jFormattedTextField1)
+        );
+        panelAbrirLayout.setVerticalGroup(
+            panelAbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAbrirLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelCpf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelAbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAbrirLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelValor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAbrirLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(labelTipoConta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radioPoup)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radioCorr)
+                        .addGap(18, 18, 18)))
+                .addGroup(panelAbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoConfirmar)
+                    .addComponent(botaoCancelar))
+                .addGap(18, 18, 18))
+        );
+
+        javax.swing.GroupLayout panelConsultaLayout = new javax.swing.GroupLayout(panelConsulta);
+        panelConsulta.setLayout(panelConsultaLayout);
+        panelConsultaLayout.setHorizontalGroup(
+            panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 346, Short.MAX_VALUE)
+        );
+        panelConsultaLayout.setVerticalGroup(
+            panelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
+        );
+
+        jLayeredPane1.setLayer(panelAbrir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(panelConsulta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelAbrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelAbrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        menuConta.setText("Conta");
+
+        menuAbrirConta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
+        menuAbrirConta.setText("Abrir Conta");
+        menuAbrirConta.setToolTipText("Abrir uma conta Corrente ou Poupança");
         menuAbrirConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuAbrirContaActionPerformed(evt);
             }
         });
-        jMenu5.add(menuAbrirConta);
+        menuConta.add(menuAbrirConta);
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu5.add(jMenuItem2);
+        menuSacar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
+        menuSacar.setText("Sacar");
+        menuSacar.setToolTipText("Retirar dinheiro da conta");
+        menuSacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSacarActionPerformed(evt);
+            }
+        });
+        menuConta.add(menuSacar);
 
-        jMenuItem3.setText("jMenuItem3");
-        jMenu5.add(jMenuItem3);
+        menuTransferir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_MASK));
+        menuTransferir.setText("Transferir");
+        menuTransferir.setToolTipText("Transferir quantia para uma outra conta");
+        menuConta.add(menuTransferir);
 
-        jMenuItem4.setText("jMenuItem4");
-        jMenu5.add(jMenuItem4);
+        menuDepositar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK));
+        menuDepositar.setText("Depositar");
+        menuDepositar.setToolTipText("Depositar dinheiro em uma conta");
+        menuConta.add(menuDepositar);
 
-        jMenuBar2.add(jMenu5);
+        menu.add(menuConta);
 
-        jMenu6.setText("Sair");
-        jMenuBar2.add(jMenu6);
+        menuSair.setText("Sair");
+        menu.add(menuSair);
 
-        setJMenuBar(jMenuBar2);
+        setJMenuBar(menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1)
         );
 
         pack();
@@ -79,7 +243,14 @@ public class Menu extends javax.swing.JFrame {
 
     private void menuAbrirContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAbrirContaActionPerformed
         // TODO add your handling code here:
+        panelAbrir.setVisible(true);
+        panelConsulta.setVisible(false);
     }//GEN-LAST:event_menuAbrirContaActionPerformed
+
+    private void menuSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSacarActionPerformed
+        panelAbrir.setVisible(false);
+        panelConsulta.setVisible(true);
+    }//GEN-LAST:event_menuSacarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,12 +288,27 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoConfirmar;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel labelCpf;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelTipoConta;
+    private javax.swing.JLabel labelValor;
+    private javax.swing.JMenuBar menu;
     private javax.swing.JMenuItem menuAbrirConta;
+    private javax.swing.JMenu menuConta;
+    private javax.swing.JMenuItem menuDepositar;
+    private javax.swing.JMenuItem menuSacar;
+    private javax.swing.JMenu menuSair;
+    private javax.swing.JMenuItem menuTransferir;
+    private javax.swing.JPanel panelAbrir;
+    private javax.swing.JPanel panelConsulta;
+    private javax.swing.JRadioButton radioCorr;
+    private javax.swing.JRadioButton radioPoup;
+    private javax.swing.JTextField textoNome;
     // End of variables declaration//GEN-END:variables
 }
